@@ -1,0 +1,41 @@
+*, ::before, ::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: transparent;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* Main Container */
+#root{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Button */
+#btn{
+    border: none;
+    outline: none;
+    padding: 1.3rem 3rem;
+    border-radius: .5rem;
+    background-color: rgba(60, 63, 235, 0.9);
+    color: #fff;
+    text-transform: uppercase;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    position: relative;
+    overflow: hidden;
+    transition: .3s;
+}
+
+#btn:hover{
+    background-color: rgb(60, 63, 235);
+}
