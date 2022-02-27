@@ -1,23 +1,30 @@
-// Changing the background color by genaratin random RGB color by chicking a button
+// Changing the background color by genaratin random Hex color by chicking a button
 
 
-// Get elements
+// get all element
 const root = document.getElementById('root');
-const btn = document.getElementById('btn');
+const changeBtn = document.getElementById('changeBtn');
+const codeBox = document.getElementById('codeBox');
+const copyBtn = document.getElementById('copyBtn');
 
-// Main function
-(function() { 
-    btn.addEventListener('click', function(){
-        const RGBCode = genarateRGB();
-        root.style.background = RGBCode;
+// genarate Hex codo #3c3feb
+function getHexCode() {
+    const hexCode = Math.floor(Math.random()*16777215).toString(16);
+
+    return `#${hexCode}`;
+}
+
+// show color in root element
+(function(){ 
+    changeBtn.addEventListener('click', function(){
+        const hexCode = getHexCode();
+        root.style.background = hexCode;
+        
+        codeBox.value = hexCode;
     })
+
+    copyBtn.addEventListener('click', function(){
+        navigator.clipboard.writeText(codeBox.value);
+    })
+
 })();
-
-// Random color genaretor function  rgb(0, 0, 0)
-function genarateRGB(){
-    const red = Math.floor(Math.random() * 255);
-    const green = Math.floor(Math.random() * 255);
-    const blue = Math.floor(Math.random() * 255);
-
-    return `rgb(${red}, ${green}, ${blue})`;
-};
