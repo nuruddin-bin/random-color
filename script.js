@@ -1,6 +1,9 @@
 // Changing the background color by genaratin random Hex color by chicking a button
 
 
+// Global
+let msgDiv = null;
+
 // get all element
 const root = document.getElementById('root');
 const changeBtn = document.getElementById('changeBtn');
@@ -25,6 +28,32 @@ function getHexCode() {
 
     copyBtn.addEventListener('click', function(){
         navigator.clipboard.writeText(codeBox.value);
+        
+        if(msgDiv != null){
+            msgDiv.remove();
+            msgDiv = null;
+        }
+        
+        getToastMsg(`${codeBox.value} copied`);
     })
 
 })();
+
+// get Toast Message element
+const getToastMsg = function(msg){
+    msgDiv = document.createElement('div');
+
+    msgDiv.innerHTML = msg;
+    document.body.appendChild(msgDiv);
+    msgDiv.className = 'toast-message slid-ani-in';
+
+    msgDiv.addEventListener('click', function(){
+        msgDiv.classList.remove('slid-ani-in');
+        msgDiv.classList.add('slid-ani-out');
+
+        msgDiv.addEventListener('animationend', function(){
+            msgDiv.remove();
+            msgDiv = null;
+        });
+    });
+}

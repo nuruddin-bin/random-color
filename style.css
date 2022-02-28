@@ -8,6 +8,7 @@ body{
     background-color: transparent;
     width: 100%;
     min-height: 100vh;
+    overflow: hidden;
 }
 
 /* Main Container */
@@ -73,4 +74,52 @@ body{
     height: 2rem;
     border-radius: .2rem;
     cursor: pointer;
+}
+
+/* toast message */
+.toast-message{
+    position: absolute;
+    top: 2rem;
+    right: 0rem;
+    padding: .7rem 2rem .7rem 1rem;
+    background: rgba(116, 243, 90, 0.938);
+    color: #000000;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.1);
+    cursor: pointer;
+    border-top-left-radius: .2rem;
+    border-bottom-left-radius: .2rem;
+}
+
+/* toast box animation */
+.slid-ani-in{
+    animation: toast-slid-in .5s ease-in;
+}
+
+.slid-ani-out{
+    animation: toast-slid-out .5s ease-in;
+}
+
+@keyframes toast-slid-in{
+    from{
+        opacity: 0;
+        transform: translateX(15rem);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0rem);
+    }
+}
+
+@keyframes toast-slid-out{
+    from{
+        opacity: 1;
+        transform: translateX(0rem);
+    }
+    to{
+        opacity: 0;
+        transform: translateX(15rem);
+    }
 }
