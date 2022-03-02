@@ -37,6 +37,7 @@ body{
     overflow: hidden;
     transition: .3s;
     cursor: pointer;
+    box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.2);
 }
 #changeBtn:hover{
     background-color: rgb(60, 63, 235);
@@ -62,6 +63,7 @@ body{
     width: 74%;
     height: 2rem;
     padding: 0 .7rem;
+    box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.2);
 }
 
 #copyBtn{
@@ -74,6 +76,7 @@ body{
     height: 2rem;
     border-radius: .2rem;
     cursor: pointer;
+    box-shadow: 5px 5px 20px 0px rgba(0,0,0,0.2);
 }
 
 /* toast message */

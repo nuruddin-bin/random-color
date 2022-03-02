@@ -3,6 +3,9 @@
 
 // Global
 let msgDiv = null;
+window.addEventListener('load', function(){
+    main();
+});
 
 // get all element
 const root = document.getElementById('root');
@@ -18,26 +21,37 @@ function getHexCode() {
 }
 
 // show color in root element
-(function(){ 
+const main = function(){ 
     changeBtn.addEventListener('click', function(){
         const hexCode = getHexCode();
         root.style.background = hexCode;
         
         codeBox.value = hexCode;
-    })
+    });
 
     copyBtn.addEventListener('click', function(){
-        navigator.clipboard.writeText(codeBox.value);
-        
         if(msgDiv != null){
             msgDiv.remove();
             msgDiv = null;
         }
-        
-        getToastMsg(`${codeBox.value} copied`);
-    })
 
-})();
+        isHexValid(codeBox.value);
+    });
+
+    codeBox.addEventListener('input', function(){  
+        const codeValue = codeBox.value;
+        root.style.background = `${codeValue}`;
+    });
+
+};
+
+// chack hex code validity
+const isHexValid = function(hexCode){
+    if(/^#([0-9A-F]{3}){1,2}$/i.test(hexCode)){
+        navigator.clipboard.writeText(hexCode);
+        getToastMsg(`${codeBox.value} copied`);
+    }
+}
 
 // get Toast Message element
 const getToastMsg = function(msg){
@@ -56,4 +70,4 @@ const getToastMsg = function(msg){
             msgDiv = null;
         });
     });
-}
+};
